@@ -14,6 +14,7 @@ import com.example.myapppokedex.ScreemStates.PokedexScreenState
 import com.example.myapppokedex.adapter.PokedexAdapter
 import com.example.myapppokedex.android.databinding.ActivityMainBinding
 import com.example.myapppokedex.datos.Pokedex
+import com.example.myapppokedex.datos.Repository.RepositoryDB.RepositoryPokedexBD
 import com.example.myapppokedex.viewmodel.PokedexViewModel
 import com.example.myapppokedex.viewmodel.PokedexViewModelFactory
 import kotlinx.coroutines.launch
@@ -60,6 +61,12 @@ class MainActivity : AppCompatActivity() {
     private fun showPokedex(pokedex: Pokedex) {
         binding.pokedexProgressBar.visibility = View.GONE
         pokedexAdapter.updatePokedex(pokedex.results)
+
+        val repositoryPokedexBD  = RepositoryPokedexBD (databaseDriverFactory = DatabaseDriverFactory(this))
+        repositoryPokedexBD.insert("pikachu", "URL MAGICA")
+
+        val pokemon = repositoryPokedexBD.get()
+
     }
 
     private fun handlerError() {
