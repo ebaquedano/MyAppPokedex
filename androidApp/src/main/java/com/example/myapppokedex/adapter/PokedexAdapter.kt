@@ -3,16 +3,18 @@ package com.example.myapppokedex.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapppokedex.build.ImageBuilder
 import com.example.myapppokedex.android.R
 import com.example.myapppokedex.android.databinding.ItemPokedexBinding
+import com.example.myapppokedex.api.ImageBuilder
+import com.example.myapppokedex.api.StringFormatter
+import com.example.myapppokedex.datos.PokedexResults
+import com.example.myapppokedex.datos.RandomData
 import com.squareup.picasso.Picasso
-import com.example.myapppokedex.data.PokedexResults
-import com.example.myapppokedex.stringFormatter.StringFormatter
 
 class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() {
 
     private val pokemonList = mutableListOf<PokedexResults>()
+    private val pokemonErrorList = mutableListOf<RandomData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokedexViewHolder {
         val pokedexBinding = ItemPokedexBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -45,4 +47,13 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
 
     class PokedexViewHolder(val binding: ItemPokedexBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+
+    fun errorPokedex(results: List <RandomData>?) {
+    pokemonErrorList.clear()
+    if(results != null) {
+        pokemonErrorList.addAll(results)
+    }
+    notifyDataSetChanged()
+    }
 }

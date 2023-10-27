@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Pokedex(
     @SerialName(value = "results")
-    val results: List<PokedexResult>
+    val results: List<PokedexResults>
 )

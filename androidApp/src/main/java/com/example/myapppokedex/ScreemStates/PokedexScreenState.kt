@@ -1,6 +1,6 @@
 package com.example.myapppokedex.ScreemStates
 
-import com.example.myapppokedex.api.Pokedex
+import com.example.myapppokedex.datos.Pokedex
 
 sealed class PokedexScreenState {
     object Loading : PokedexScreenState()
