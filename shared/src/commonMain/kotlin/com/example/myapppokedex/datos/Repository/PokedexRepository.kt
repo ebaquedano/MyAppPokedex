@@ -33,4 +33,5 @@ class PokedexRepository {
         }.body<Pokedex>()
         return result
     }
+
 }
