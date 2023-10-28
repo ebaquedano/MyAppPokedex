@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("com.squareup.sqldelight")
     kotlin("plugin.serialization") version "1.6.10"
 }
 
@@ -32,6 +33,7 @@ kotlin {
         val ktorVersion = "2.0.0-beta-1"
         val coroutinesVersion = "1.6.0"
 
+
         val commonMain by getting {
             dependencies {
                 //Serializaction modulo compartido
@@ -47,9 +49,9 @@ kotlin {
                 //Libreria de  logging
                 implementation("io.github.aakira:napier:2.6.1")
 
-                //Coroutines
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+                //SqlDelight
+                implementation("com.squareup.sqldelight:runtime:1.5.5")
+
             }
         }
         val commonTest by getting {
@@ -63,6 +65,8 @@ kotlin {
 
                 //ktor modulo android
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+                //SqlDelight
+                implementation("com.squareup.sqldelight:android-driver:1.5.5")
             }
         }
 
@@ -71,6 +75,8 @@ kotlin {
 
                 //ktor modulo ios
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
+                //SqlDelight
+                implementation("com.squareup.sqldelight:native-driver:1.5.5")
             }
         }
     }
@@ -81,5 +87,11 @@ android {
     compileSdk = 33
     defaultConfig {
         minSdk = 26
+    }
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "com.mypokedex.db"
     }
 }
