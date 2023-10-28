@@ -65,15 +65,23 @@ class MainActivity : AppCompatActivity() {
         val repositoryPokedexBD  = RepositoryPokedexBD (databaseDriverFactory = DatabaseDriverFactory(this))
         repositoryPokedexBD.insert("pikachu", "URL MAGICA")
 
-        val pokemon = repositoryPokedexBD.get()
-
     }
 
     private fun handlerError() {
+        //Instancia
+        val repositoryPokedexBD  = RepositoryPokedexBD (databaseDriverFactory = DatabaseDriverFactory(this))
+        //Busco en la bd
+        val pokemon = repositoryPokedexBD.get()
+
+        if (pokemon.isEmpty()){
         Toast.makeText(this, "Error buscando la informacion", Toast.LENGTH_LONG).show()
+        }else{
+            binding.pokedexProgressBar.visibility = View.GONE
+            pokedexAdapter.updatePokedex(pokemon)
+        }
     }
 
-    private fun showLoading() {
+        private fun showLoading() {
         binding.pokedexProgressBar.visibility = View.VISIBLE
     }
 

@@ -37,7 +37,7 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
         return pokemonList.size
     }
 
-    fun updatePokedex(results: List<PokedexResults>?) {
+    fun updatePokedex(results: List<PokedexResults>) {
         pokemonList.clear()
         if(results != null) {
             pokemonList.addAll(results)
