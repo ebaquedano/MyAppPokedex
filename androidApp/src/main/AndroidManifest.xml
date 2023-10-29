@@ -10,6 +10,7 @@
 
         <activity
             android:name="com.example.myapppokedex.MainActivity"
+            android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
