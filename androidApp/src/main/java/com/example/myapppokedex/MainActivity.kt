@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         val pokemon = repositoryPokedexBD.get()
 
         if (pokemon.isEmpty()){
-          
+            Toast.makeText(this, "No hay conexion a internet", Toast.LENGTH_LONG).show()
         }else{
             binding.pokedexProgressBar.visibility = View.GONE
             pokedexAdapter.updatePokedex(pokemon)
