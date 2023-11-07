@@ -31,7 +31,8 @@ kotlin {
 
         val serializacionVersion = "2.0.0-beta-1"
         val ktorVersion = "2.0.0-beta-1"
-        val coroutinesVersion = "1.6.0"
+        val sqldelightVersion = "1.5.5"
+        val napierVersion = "2.6.1"
 
 
         val commonMain by getting {
@@ -47,10 +48,10 @@ kotlin {
                 implementation("io.ktor:ktor-client-logging:$ktorVersion")
 
                 //Libreria de  logging
-                implementation("io.github.aakira:napier:2.6.1")
+                implementation("io.github.aakira:napier:$napierVersion")
 
                 //SqlDelight
-                implementation("com.squareup.sqldelight:runtime:1.5.5")
+                implementation("com.squareup.sqldelight:runtime:$sqldelightVersion")
 
             }
         }
@@ -66,7 +67,7 @@ kotlin {
                 //ktor modulo android
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
                 //SqlDelight
-                implementation("com.squareup.sqldelight:android-driver:1.5.5")
+                implementation("com.squareup.sqldelight:android-driver:$sqldelightVersion")
             }
         }
 
@@ -76,7 +77,7 @@ kotlin {
                 //ktor modulo ios
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
                 //SqlDelight
-                implementation("com.squareup.sqldelight:native-driver:1.5.5")
+                implementation("com.squareup.sqldelight:native-driver:$sqldelightVersion")
             }
         }
     }

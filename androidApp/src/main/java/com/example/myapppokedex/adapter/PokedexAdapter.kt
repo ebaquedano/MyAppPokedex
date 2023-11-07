@@ -8,13 +8,12 @@ import com.example.myapppokedex.android.databinding.ItemPokedexBinding
 import com.example.myapppokedex.api.ImageBuilder
 import com.example.myapppokedex.api.StringFormatter
 import com.example.myapppokedex.datos.PokedexResults
-import com.example.myapppokedex.datos.RandomData
 import com.squareup.picasso.Picasso
 
 class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() {
 
     private val pokemonList = mutableListOf<PokedexResults>()
-    private val pokemonErrorList = mutableListOf<RandomData>()
+    private val pokemonErrorList = mutableListOf<PokedexResults>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokedexViewHolder {
         val pokedexBinding = ItemPokedexBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -49,7 +48,7 @@ class PokedexAdapter : RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder>() 
         RecyclerView.ViewHolder(binding.root)
 
 
-    fun errorPokedex(results: List <RandomData>?) {
+    fun errorPokedex(results: List <PokedexResults>?) {
     pokemonErrorList.clear()
     if(results != null) {
         pokemonErrorList.addAll(results)
