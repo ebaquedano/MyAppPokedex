@@ -3,8 +3,7 @@ package com.example.myapppokedex.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapppokedex.datos.Repository.PokedexRepository
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+
 
 class PokedexViewModelFactory : ViewModelProvider.Factory {
 

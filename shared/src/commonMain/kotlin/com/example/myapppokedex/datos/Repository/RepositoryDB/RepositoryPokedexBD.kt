@@ -1,10 +1,7 @@
 package com.example.myapppokedex.datos.Repository.RepositoryDB
 
 import com.example.myapppokedex.DatabaseDriverFactory
-import com.example.myapppokedex.datos.NameData
-import com.example.myapppokedex.datos.PictureData
 import com.example.myapppokedex.datos.PokedexResults
-import com.example.myapppokedex.datos.RandomData
 import com.mypokedex.db.AppDatabase
 
 class RepositoryPokedexBD (databaseDriverFactory : DatabaseDriverFactory) {
